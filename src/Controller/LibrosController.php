@@ -91,7 +91,13 @@ class LibrosController extends AppController
             'contain' => [],
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
+
+            $nombreImagenAnterior=$libro->imagen;
+
             $libro = $this->Libros->patchEntity($libro, $this->request->getData());
+
+            $libro->imagen=$nombreImagenAnterior;
+
             if ($this->Libros->save($libro)) {
                 $this->Flash->success(__('The libro has been saved.'));
 

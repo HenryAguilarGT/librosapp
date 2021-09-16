@@ -23,8 +23,8 @@
                 <legend><?= __('Edit Libro') ?></legend>
                 <?php
                     echo $this->Form->control('nombre');
-                    echo $this->Form->control('imagen');
-                    echo $this->Form->control('imagen', ['type'=>'file']);
+                    // echo $this->Form->control('imagen');
+                    echo $this->Form->control('imagen', ['type'=>'file', 'required'=>false]);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
