@@ -20,7 +20,7 @@ class LibrosController extends AppController
      */
     public function index()
     {
-        $libros = $this->paginate($this->Libros);
+        $libros = $this->paginate($this->Libros, ['limit'=> 5]);
 
         $this->set(compact('libros'));
     }
