@@ -5,7 +5,7 @@
  */
 ?>
 <div class="libros index content">
-    <?= $this->Html->link(__('New Libro'), ['action' => 'add'], ['class' => 'button float-right']) ?>
+    <?= $this->Html->link(__('NUEVO'), ['action' => 'add'], ['class' => 'button float-right']) ?>
     <h3><?= __('Libros') ?></h3>
     <div class="table-responsive">
         <table>
@@ -14,9 +14,9 @@
                     <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
                     <th><?= $this->Paginator->sort('nombre') ?></th>
                     <th><?= $this->Paginator->sort('imagen') ?></th>
-                    <th><?= $this->Paginator->sort('created') ?></th>
-                    <th><?= $this->Paginator->sort('modified') ?></th>
-                    <th class="actions"><?= __('Actions') ?></th>
+                    <th><?= $this->Paginator->sort('Creado') ?></th>
+                    <th><?= $this->Paginator->sort('Modificado') ?></th>
+                    <th class="actions"><?= __('Acciones') ?></th>
                 </tr>
             </thead>
             <tbody>
@@ -31,9 +31,9 @@
                     <td><?= h($libro->created) ?></td>
                     <td><?= h($libro->modified) ?></td>
                     <td class="actions">
-                        <?= $this->Html->link(__('View'), ['action' => 'view', $libro->id]) ?>
-                        <?= $this->Html->link(__('Edit'), ['action' => 'edit', $libro->id]) ?>
-                        <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $libro->id], ['confirm' => __('Are you sure you want to delete # {0}?', $libro->id)]) ?>
+                        <?= $this->Html->link(__('Ver'), ['action' => 'view', $libro->id]) ?>
+                        <?= $this->Html->link(__('Editar'), ['action' => 'edit', $libro->id]) ?>
+                        <?= $this->Form->postLink(__('Borrar'), ['action' => 'delete', $libro->id], ['confirm' => __('Esta seguro de borrar # {0}?', $libro->id)]) ?>
                     </td>
                 </tr>
                 <?php endforeach; ?>
@@ -42,12 +42,12 @@
     </div>
     <div class="paginator">
         <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
+            <?= $this->Paginator->first('<< ' . __('primero')) ?>
+            <?= $this->Paginator->prev('< ' . __('anterior')) ?>
             <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
+            <?= $this->Paginator->next(__('siguiente') . ' >') ?>
+            <?= $this->Paginator->last(__('ultimo') . ' >>') ?>
         </ul>
-        <p><?= $this->Paginator->counter(__('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')) ?></p>
+        <p><?= $this->Paginator->counter(__('Pagina {{page}} de {{pages}}, mostrando {{current}} registro(s) de {{count}} en total')) ?></p>
     </div>
 </div>
