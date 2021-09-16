@@ -16,7 +16,7 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="libros view content">
-            <h3><?= h($libro->id) ?></h3>
+            <!-- <h3><?= h($libro->id) ?></h3> -->
             <table>
                 <tr>
                     <th><?= __('Nombre') ?></th>
@@ -24,7 +24,10 @@
                 </tr>
                 <tr>
                     <th><?= __('Imagen') ?></th>
-                    <td><?= h($libro->imagen) ?></td>
+                    <td>
+                        <!-- <?= h($libro->imagen) ?> -->
+                        <?= $this->Html->image('Libros/'.$libro->imagen, array('width'=>125)) ?>
+                    </td>
                 </tr>
                 <tr>
                     <!-- <th><?= __('Id') ?></th>

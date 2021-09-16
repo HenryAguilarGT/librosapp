@@ -21,11 +21,11 @@
             <?= $this->Form->create($libro, ['type'=>'file']) ?>
             <fieldset>
                 <legend><?= __('Edit Libro') ?></legend>
-                <?php
-                    echo $this->Form->control('nombre');
-                    // echo $this->Form->control('imagen');
-                    echo $this->Form->control('imagen', ['type'=>'file', 'required'=>false]);
-                ?>
+                <?php echo $this->Form->control('nombre'); ?>
+
+                <?= $this->Html->image('Libros/'.$libro->imagen, array('width'=>125)) ?>
+
+                <?php echo $this->Form->control('imagen', ['type'=>'file', 'required'=>false]); ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
             <?= $this->Form->end() ?>
