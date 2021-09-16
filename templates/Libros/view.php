@@ -27,8 +27,8 @@
                     <td><?= h($libro->imagen) ?></td>
                 </tr>
                 <tr>
-                    <th><?= __('Id') ?></th>
-                    <td><?= $this->Number->format($libro->id) ?></td>
+                    <!-- <th><?= __('Id') ?></th>
+                    <td><?= $this->Number->format($libro->id) ?></td> -->
                 </tr>
                 <tr>
                     <th><?= __('Created') ?></th>

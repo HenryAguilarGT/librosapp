@@ -92,11 +92,27 @@ class LibrosController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
 
-            $nombreImagenAnterior=$libro->imagen;
+            $nombreImagenAnterior=$libro->imagen; //Aca obtenemos el nombre anterior actual y para luego poder modificarlo
 
             $libro = $this->Libros->patchEntity($libro, $this->request->getData());
+            $imagen=$this->request->getData('imagen');
 
-            $libro->imagen=$nombreImagenAnterior;
+            $libro->imagen=$nombreImagenAnterior; //Aca obtenemos el nombre anterior actual y para luego poder modificarlo
+
+            if($imagen->getClientFileName()){
+                // print_r($imagen->getClientFileName());
+                // exit();
+
+                if(file_exists(WWW_ROOT.'img/Libros/'.$nombreImagenAnterior)){
+                    unlink(WWW_ROOT.'img/Libros/'.$nombreImagenAnterior);
+                }
+
+                $tiempo= FrozenTime::now()->toUnixString(); //Si obtenemos la imagen le asignamos tiempo
+                $nombreImagen=$tiempo."_".$imagen->getClientFileName(); //Aqui al nombre de la imagen de agregamos el tiempo
+                $destino=WWW_ROOT.'img/Libros/'.$nombreImagen; //Ruta donde se van a guardar las imagenes por post (libros)
+                $imagen->moveTo($destino);
+                $libro->imagen=$nombreImagen;
+            }
 
             if ($this->Libros->save($libro)) {
                 $this->Flash->success(__('The libro has been saved.'));
