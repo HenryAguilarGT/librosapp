@@ -5,6 +5,7 @@
 /logs/*
 /tmp/*
 /vendor/*
+/webroot/libros/*
 
 # OS generated files #
 ######################
@@ -41,3 +42,4 @@ nbproject/*
 .vscode
 # Sass preprocessor
 .sass-cache/
+
