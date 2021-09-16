@@ -11,7 +11,7 @@
         <table>
             <thead>
                 <tr>
-                    <th><?= $this->Paginator->sort('id') ?></th>
+                    <!-- <th><?= $this->Paginator->sort('id') ?></th> -->
                     <th><?= $this->Paginator->sort('nombre') ?></th>
                     <th><?= $this->Paginator->sort('imagen') ?></th>
                     <th><?= $this->Paginator->sort('created') ?></th>
@@ -22,7 +22,7 @@
             <tbody>
                 <?php foreach ($libros as $libro): ?>
                 <tr>
-                    <td><?= $this->Number->format($libro->id) ?></td>
+                    <!-- <td><?= $this->Number->format($libro->id) ?></td> -->
                     <td><?= h($libro->nombre) ?></td>
                     <td><?= h($libro->imagen) ?></td>
                     <td><?= h($libro->created) ?></td>

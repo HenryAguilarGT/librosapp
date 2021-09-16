@@ -113,6 +113,13 @@ class LibrosController extends AppController
     {
         $this->request->allowMethod(['post', 'delete']);
         $libro = $this->Libros->get($id);
+
+        // Borrando la imagen a la hora de borrar un post
+
+        if(file_exists(WWW_ROOT.'img/Libros/'.$libro['imagen'])){
+            unlink(WWW_ROOT.'img/Libros/'.$libro['imagen']);
+        }
+
         if ($this->Libros->delete($libro)) {
             $this->Flash->success(__('The libro has been deleted.'));
         } else {
