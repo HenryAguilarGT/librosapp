@@ -18,12 +18,13 @@
     </aside>
     <div class="column-responsive column-80">
         <div class="libros form content">
-            <?= $this->Form->create($libro) ?>
+            <?= $this->Form->create($libro, ['type'=>'file']) ?>
             <fieldset>
                 <legend><?= __('Edit Libro') ?></legend>
                 <?php
                     echo $this->Form->control('nombre');
                     echo $this->Form->control('imagen');
+                    echo $this->Form->control('imagen', ['type'=>'file']);
                 ?>
             </fieldset>
             <?= $this->Form->button(__('Submit')) ?>
