@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
+use Cake\I18n\FrozenTime;
+
 /**
  * Libros Controller
  *
@@ -49,6 +51,23 @@ class LibrosController extends AppController
         $libro = $this->Libros->newEmptyEntity();
         if ($this->request->is('post')) {
             $libro = $this->Libros->patchEntity($libro, $this->request->getData());
+
+            // Agregar Imagen del Libro
+
+            $imagen=$this->request->getData('imagen');
+
+            // Haciendo pruebas para verficar si al objeto llegan la informacion de la imagen
+            // print_r($this->request->getData());
+            // exit();
+
+            if($imagen) {
+                $tiempo= FrozenTime::now()->toUnixString(); //Si obtenemos la imagen le asignamos tiempo
+                $nombreImagen=$tiempo."_".$imagen->getClientFileName(); //Aqui al nombre de la imagen de agregamos el tiempo
+                $destino=WWW_ROOT.'img/Libros/'.$nombreImagen; //Ruta donde se van a guardar las imagenes por post (libros)
+                $imagen->moveTo($destino);
+                $libro->imagen=$nombreImagen;
+            }
+
             if ($this->Libros->save($libro)) {
                 $this->Flash->success(__('The libro has been saved.'));
 
